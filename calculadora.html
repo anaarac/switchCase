@@ -11,7 +11,22 @@
         n1 = parseInt(prompt("Digite um número: "))
         n2 = parseInt(prompt("Digite um número: "))
         operacao = prompt("digite o símbolo da operação matemática equivalente: \n +. adição \n -. subtração \n x. multiplicação \n /. divisão")
-        alert("O resultado dos números mais a operação é ")
+        switch (operacao) {
+            case "+":
+            alert ("O resultado dos números mais a operação é de " + (n1 + n2))
+            break
+            case "-":
+            alert ("O resultado dos números mais a operação é de " + (n1 - n2))
+            break
+            case "x":
+            alert ("O resultado dos números mais a operação é de " + (n1 * n2))
+            break
+            case "/":
+            alert ("O resultado dos números mais a operação é de " + (n1 / n2))
+            break;
+            default:
+                alert("Há algum erro na sua digitação")
+        }
     </script>
     
 </body>

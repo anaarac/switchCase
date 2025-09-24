@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+</head>
+<body>
+    <script>
+        /*Classificador de Notas Escolares: Desenvolva um sistema que recebe uma nota de 0 a 10 
+        e classifique conforme a tabela:
+        9-10: "Excelente"
+        7-8.9: "Bom"
+        5-6.9: "Regular"
+        0-4.9: "Insuficiente"
+        Converta a nota para um valor inteiro (arredondando) antes de usar no switch. Não use if/else.*/
+
+        let nota,notaInt, classificacao;
+        nota = parseFloat(prompt("Digite a nota escolar final:"))
+        notaInt = Math.round(nota);
+
+
+            switch (classificacao) {
+            case (notaInt >= 0 && notaInt <= 4.9):
+            alert ("Sua nota final é insuficiente")
+            break;
+            case "5-6.9 ":
+            alert ("Sua nota final é Regular")
+            break;
+            case "7-8.9 ":
+            alert ("Sua nota final é Bom")
+            break;
+            case "9-10":
+            alert ("Sua nota final é Bom")
+            break;
+            default: 
+            alert("");
+
+            }
+    </script>
+    
+    <!--
+    <script>
+        /*Sistema de Menu de Restaurante: Crie um menu interativo onde o usuário digita o código do 
+        prato (1-5) e o programa deve: Mostrar o nome do prato, O preço, O tempo estimado de preparo,
+        Uma breve descrição: 
+        Pizza Margherita - R$ 35,00 - 20min
+        Lasanha - R$ 28,00 - 25min
+        Salada Caesar - R$ 22,00 - 10min
+        Hambúrguer - R$ 18,00 - 15min
+        Sopa do dia - R$ 15,00 - 8min
+        Use apenas switch-case para controlar todo o fluxo.*/
+
+        let menu;
+        menu = parseInt(prompt("Opções do prato do dia:\n 1 - Pizza Marguerita \n 2 - Lasanha \n 3- Salada Ceasar \n 4 - Hambúrguer \n 5 - Sopa do dia"))
+        switch (menu) {
+        case 1:
+        alert("Seu prato tem o tempo de preparo de 20 min e custa o valor de R$ 35,00")
+        break;
+        case 2:
+        alert("Seu prato tem o tempo de preparo de 25 min e custa o valor de R$ 28,00")
+        break;
+        case 3:
+        alert("Seu prato tem o tempo de preparo de 10 min e custa o valor de R$ 22,00")
+        break;
+        case 4:
+        alert("Seu prato tem o tempo de preparo de 15 min e custa o valor de R$ 18,00")
+        break;
+        case 5:
+        alert("Seu prato tem o tempo de preparo de 8 min e custa o valor de R$ 15,00")
+        break;
+        default:
+            alert("Código não disponível")
+    }
+    </script>
+    -->
+</body>
+</html>
