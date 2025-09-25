@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercícios</title>
 </head>
+
 <body>
-    <script>
+    <!--<script>
         /*Classificador de Notas Escolares: Desenvolva um sistema que recebe uma nota de 0 a 10 
         e classifique conforme a tabela:
         9-10: "Excelente"
@@ -37,10 +39,9 @@
             alert("");
 
             }
-    </script>
-    
-    <!--
-    <script>
+    </script>-->
+
+    <!--<script>
         /*Sistema de Menu de Restaurante: Crie um menu interativo onde o usuário digita o código do 
         prato (1-5) e o programa deve: Mostrar o nome do prato, O preço, O tempo estimado de preparo,
         Uma breve descrição: 
@@ -55,24 +56,100 @@
         menu = parseInt(prompt("Opções do prato do dia:\n 1 - Pizza Marguerita \n 2 - Lasanha \n 3- Salada Ceasar \n 4 - Hambúrguer \n 5 - Sopa do dia"))
         switch (menu) {
         case 1:
-        alert("Seu prato tem o tempo de preparo de 20 min e custa o valor de R$ 35,00")
+        alert("Ingredientes:\n Farinha de trigo, leite, óleo, fermento biológico, sal, \n polpa de tomate e muçarela \n Tempo de preparo: 20 min \n R$ 35,00")
         break;
         case 2:
-        alert("Seu prato tem o tempo de preparo de 25 min e custa o valor de R$ 28,00")
+        alert("Ingredientes:\n Óleo, cebola, carne moída, polpa de tomate, água, \n massa para lasanha (seca), presunto fatiado, e muçarela. \n Tempo de preparo: 25 min \n R$ 28,00")
         break;
         case 3:
-        alert("Seu prato tem o tempo de preparo de 10 min e custa o valor de R$ 22,00")
+        alert("Ingredientes:\n Alface romana, alface americana, croutons crocantes, \n anchova, parmesão ralado e frango grelhado em tiras. \n Tempo de preparo: 10 min \n R$ 22,00")
         break;
         case 4:
-        alert("Seu prato tem o tempo de preparo de 15 min e custa o valor de R$ 18,00")
+        alert("Ingredientes:\n Pão crocante, queijo tipo cheddar, bacon defumado, \n 300g de Blend de carne, alface americana, acompanha batatas fritas. \n Tempo de preparo: 15 min \n R$ 18,00")
         break;
         case 5:
-        alert("Seu prato tem o tempo de preparo de 8 min e custa o valor de R$ 15,00")
+        alert("Ingredientes:\n Mandioquinha, salsa, batata, frango temperado, cebola, \n margarina, sal, alho, cebolinha, salsinha e pimenta-do-reino. \n Tempo de preparo: 8 min \n R$ 15,00")
         break;
         default:
             alert("Código não disponível")
     }
+    </script>-->
+
+    <script>
+        /* Sistema de Verificação de Elegibilidade para Empréstimo: Desenvolva um programa que 
+        avalia se um cliente é elegível para um empréstimo baseado em três critérios: 
+        (código de 1 a 4):
+     1: Cliente VIP
+     2: Cliente Regular
+     3: Cliente Novo
+     4: Cliente Especial
+     VIP: Aprovado automaticamente, independente de outros critérios
+         Regular: Precisa de renda ≥ R$ 2000 E score ≥ 600
+         Novo: Precisa de renda ≥ R$ 3000 E score ≥ 700
+         Especial: Análise manual necessária
+         Se o score for menor que 300, recusar automaticamente (exceto para VIP)
+         Se a renda for menor que R$ 1000, recusar automaticamente (exceto para VIP)
+         Para clientes Especiais, verificar se a renda é maior que R$ 5000 OU score maior que 800 para "Análise Prioritária", caso contrário "Análise Comum"
+         Mensagem de "APROVADO", "RECUSADO" ou "ANÁLISE NECESSÁRIA"
+         Justificativa detalhada da decisão
+ 
+         Use if else e switch para o controle do programa, e também use a condição && (AND)*/
+
+        let nome = prompt("Digite seu nome");
+        let classificação = (prompt("Estamos liberando algumas linhas de crédito, com boas taxas e flexibilidade no prazo de pagamento. \n Para maiores informações digite a opção do seu perfil conosco:\n 1.VIP \n 2.Regular \n 3.Novo \n 4.Especial"));
+        let renda = parseFloat(prompt("Qual sua renda mensal?"));
+        let score = parseInt(prompt("Qual seu score?"));
+        let resultado = "";
+        let justificativa = "";
+        if (renda < 1000 && classificação !== 1) {
+            resultado = "Reprovado";
+            justificativa = "Seu perfil não possui linhas de crédito disponíeis no momento";
+        } else if (score < 300 && classificação !== 1) {
+            resultado = "Reprovado";
+            justificativa = "Seu perfil não possui linhas de crédito disponíeis no momento";
+        } else {
+            switch (classificação) {
+                case 1: //vip
+                    resultado = "Você é nosso cliente VIP!!";
+                    justificativa = "E por isso possui linhas de crédito ilimitado!";
+                    break;
+                case 2: //regular
+                    if (renda >= 2000 && score >= 600) {
+                        resultado = "Você é um cliente Regular";
+                        justificativa = "Você possui linhas de crédito disponível com taxas atrativas.";
+                    } else {
+                        resultado = "Recusado";
+                        justificativa = "No momento você não atende aos critérios determinados.";
+                    }
+                    break;
+                case 3: //novo
+                    if (renda >= 3000 && score >= 700) {
+                        resultado = "Seja bem-vindo!!\n Seu relacionamento começa agora conosco";
+                        justificativa = "Sua solicitação irá passar por uma análise, e seu gerente entrará em contato com a proposta disponível";
+                    } else {
+                        resultado = "Recusado";
+                        justificativa = "No momento você não atende aos critérios determinados.";
+                    }
+                    break;
+                case 4: //especial
+                    if (renda >= 5000 && score >= 800) {
+                        resultado = "Você é nosso cliente Especial";
+                        justificativa = "A análise para seu crédito está como nossa prioridade";
+                    } else {
+                        resultado = "Iremos analisar sua solicitação";
+                        justificativa = "Assim que disponível nosso time entrará em contato!";
+                    }
+                    break;
+                default:
+                    resultado = "ERRO!! - Parametros não correspondentes."
+            }
+        }
+
+        alert("Resultado: " + resultado + "\n Justificativa:" + justificativa);
+
+        //exemplo professor//
+
     </script>
-    -->
 </body>
+
 </html>
