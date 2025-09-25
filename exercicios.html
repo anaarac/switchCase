@@ -96,17 +96,18 @@
          Use if else e switch para o controle do programa, e também use a condição && (AND)*/
 
         let nome = prompt("Digite seu nome");
-        let classificação = (prompt("Estamos liberando algumas linhas de crédito, com boas taxas e flexibilidade no prazo de pagamento. \n Para maiores informações digite a opção do seu perfil conosco:\n 1.VIP \n 2.Regular \n 3.Novo \n 4.Especial"));
+        let classificação = parseInt(prompt("Estamos liberando algumas linhas de crédito, com boas taxas e flexibilidade no prazo de pagamento. \n Para maiores informações digite a opção do seu perfil conosco:\n 1.VIP \n 2.Regular \n 3.Novo \n 4.Especial"));
         let renda = parseFloat(prompt("Qual sua renda mensal?"));
         let score = parseInt(prompt("Qual seu score?"));
         let resultado = "";
         let justificativa = "";
+        
         if (renda < 1000 && classificação !== 1) {
             resultado = "Reprovado";
-            justificativa = "Seu perfil não possui linhas de crédito disponíeis no momento";
+            justificativa = "Seu perfil não possui linhas de crédito disponíveis no momento";
         } else if (score < 300 && classificação !== 1) {
             resultado = "Reprovado";
-            justificativa = "Seu perfil não possui linhas de crédito disponíeis no momento";
+            justificativa = "Seu perfil não possui linhas de crédito disponíveis no momento";
         } else {
             switch (classificação) {
                 case 1: //vip
@@ -116,7 +117,7 @@
                 case 2: //regular
                     if (renda >= 2000 && score >= 600) {
                         resultado = "Você é um cliente Regular";
-                        justificativa = "Você possui linhas de crédito disponível com taxas atrativas.";
+                        justificativa = "Você possui linhas de crédito disponvível com taxas atrativas.";
                     } else {
                         resultado = "Recusado";
                         justificativa = "No momento você não atende aos critérios determinados.";
